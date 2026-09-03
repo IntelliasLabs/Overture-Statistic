@@ -1,0 +1,87 @@
+{
+  "type": "FeatureCollection",
+  "features":
+  [
+    {
+      "class": "com.intellias.statistic.model.feature.MultiPolygonFeature",
+      "featureId": "id1-1",
+      "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 6.328125, 49.5263671875 ], [ 6.328125, 49.54833984375 ], [ 6.35009765625, 49.54833984375 ], [ 6.35009765625, 49.5263671875 ], [ 6.328125, 49.5263671875 ] ] ] ] },
+      "properties": {
+        "area": 0,
+        "version": "v1",
+        "featureType": "ADMIN-DISPLAY-AREA-SET",
+        "timestamp": "2025-04-03T12:30:53.006+0300",
+        "featureProperties": [
+          {
+            "key": "TYPE",
+            "values": [
+              "AREA_COUNTRY"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_AREA_NAME",
+            "values": [
+              "Luxemburg",
+              "Lëtzebuerg",
+              "Bous-Waldbredimus",
+              "Remich"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_HIERARCHY",
+            "values": [
+              "MUNICIPALITY - Bous-Waldbredimus",
+              "SUB_COUNTRY - Canton Remich",
+              "COUNTRY - Lëtzebuerg",
+              "COUNTRY - Люксембург",
+              "COUNTRY - Großherzogtum Luxemburg",
+              "COUNTRY - Luxembourg"
+            ]
+          }
+        ],
+        "globalSourceId": "123-LUX"
+      }
+    },
+    {
+      "class": "com.intellias.statistic.model.feature.MultiPolygonFeature",
+      "featureId": "id1-2",
+      "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 6.328125, 49.50439453125 ], [ 6.328125, 49.5263671875 ], [ 6.35009765625, 49.5263671875 ], [ 6.35009765625, 49.50439453125 ], [ 6.328125, 49.50439453125 ] ] ] ] },
+      "properties": {
+        "area": 0,
+        "version": "v1",
+        "featureType": "ADMIN-DISPLAY-AREA-SET",
+        "timestamp": "2025-04-03T12:30:53.006+0300",
+        "featureProperties": [
+          {
+            "key": "TYPE",
+            "values": [
+              "AREA_COUNTRY"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_AREA_NAME",
+            "values": [
+              "Luxemburg",
+              "Lëtzebuerg",
+              "Bous-Waldbredimus",
+              "Remich",
+              "Grand Duchy of Luxembourg"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_HIERARCHY",
+            "values": [
+              "MUNICIPALITY - Bous-Waldbredimus",
+              "SUB_COUNTRY - Canton Remich",
+              "COUNTRY - Lëtzebuerg",
+              "COUNTRY - Люксембург",
+              "COUNTRY - Großherzogtum Luxemburg",
+              "COUNTRY - Luxembourg"
+            ]
+          }
+        ],
+        "globalSourceId": "123-LUX"
+      }
+    }
+    ]
+}

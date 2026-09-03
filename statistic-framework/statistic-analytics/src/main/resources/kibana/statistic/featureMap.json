@@ -1,0 +1,18 @@
+{
+  "type": "map",
+  "version": "WzIyNzcsMjNd",
+  "attributes": {
+    "title": "featureMap",
+    "description": "",
+    "layerListJSON": "[{\"locale\":\"autoselect\",\"sourceDescriptor\":{\"type\":\"EMS_TMS\",\"isAutoSelect\":true,\"lightModeDefault\":\"road_map_desaturated\"},\"id\":\"$MAP_ID_FIRST\",\"label\":null,\"minZoom\":0,\"maxZoom\":24,\"alpha\":1,\"visible\":true,\"style\":{\"type\":\"EMS_VECTOR_TILE\",\"color\":\"\"},\"includeInFitToBounds\":true,\"type\":\"EMS_VECTOR_TILE\"},{\"sourceDescriptor\":{\"geoField\":\"geometry\",\"scalingType\":\"MVT\",\"id\":\"$MAP_ID_SECOND\",\"type\":\"ES_SEARCH\",\"applyGlobalQuery\":true,\"applyGlobalTime\":true,\"applyForceRefresh\":true,\"filterByMapBounds\":true,\"tooltipProperties\":[],\"sortField\":\"\",\"sortOrder\":\"desc\",\"topHitsGroupByTimeseries\":false,\"topHitsSplitField\":\"\",\"topHitsSize\":1,\"indexPatternRefName\":\"layer_1_source_index_pattern\"},\"id\":\"$MAP_ID_THIRD\",\"label\":\"features\",\"minZoom\":0,\"maxZoom\":24,\"alpha\":0.75,\"visible\":true,\"style\":{\"type\":\"VECTOR\",\"properties\":{\"icon\":{\"type\":\"STATIC\",\"options\":{\"value\":\"marker\"}},\"fillColor\":{\"type\":\"STATIC\",\"options\":{\"color\":\"#54B399\"}},\"lineColor\":{\"type\":\"STATIC\",\"options\":{\"color\":\"#41937c\"}},\"lineWidth\":{\"type\":\"STATIC\",\"options\":{\"size\":1}},\"iconSize\":{\"type\":\"STATIC\",\"options\":{\"size\":6}},\"iconOrientation\":{\"type\":\"STATIC\",\"options\":{\"orientation\":0}},\"labelText\":{\"type\":\"STATIC\",\"options\":{\"value\":\"\"}},\"labelColor\":{\"type\":\"STATIC\",\"options\":{\"color\":\"#000000\"}},\"labelSize\":{\"type\":\"STATIC\",\"options\":{\"size\":14}},\"labelZoomRange\":{\"options\":{\"useLayerZoomRange\":true,\"minZoom\":0,\"maxZoom\":24}},\"labelBorderColor\":{\"type\":\"STATIC\",\"options\":{\"color\":\"#FFFFFF\"}},\"symbolizeAs\":{\"options\":{\"value\":\"circle\"}},\"labelBorderSize\":{\"options\":{\"size\":\"SMALL\"}},\"labelPosition\":{\"options\":{\"position\":\"CENTER\"}}},\"isTimeAware\":true},\"includeInFitToBounds\":true,\"type\":\"MVT_VECTOR\",\"joins\":[],\"disableTooltips\":false}]",
+    "mapStateJSON": "{\"adHocDataViews\":[],\"zoom\":2.09,\"center\":{\"lon\":0,\"lat\":19.94277},\"timeFilters\":{\"from\":\"now-15m\",\"to\":\"now\"},\"refreshConfig\":{\"isPaused\":true,\"interval\":60000},\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filters\":[],\"settings\":{\"autoFitToDataBounds\":false,\"backgroundColor\":\"#ffffff\",\"customIcons\":[],\"disableInteractive\":false,\"disableTooltipControl\":false,\"hideToolbarOverlay\":false,\"hideLayerControl\":false,\"hideViewControl\":false,\"initialLocation\":\"LAST_SAVED_LOCATION\",\"fixedLocation\":{\"lat\":0,\"lon\":0,\"zoom\":2},\"browserLocation\":{\"zoom\":2},\"keydownScrollZoom\":false,\"maxZoom\":24,\"minZoom\":0,\"showScaleControl\":false,\"showSpatialFilters\":true,\"showTimesliderToggleButton\":true,\"spatialFiltersAlpa\":0.3,\"spatialFiltersFillColor\":\"#DA8B45\",\"spatialFiltersLineColor\":\"#DA8B45\"}}",
+    "uiStateJSON": "{\"isLayerTOCOpen\":true,\"openTOCDetails\":[]}"
+  },
+  "references": [
+    {
+      "name": "layer_1_source_index_pattern",
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID"
+    }
+  ]
+}

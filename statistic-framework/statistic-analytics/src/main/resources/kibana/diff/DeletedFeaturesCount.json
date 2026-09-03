@@ -1,0 +1,117 @@
+{
+  "type": "lens",
+  "attributes": {
+    "title": "Deleted Features count",
+    "description": "",
+    "visualizationType": "lnsDatatable",
+    "state": {
+      "visualization": {
+        "columns": [
+          {
+            "columnId": "$INDEX_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": false
+          },
+          {
+            "columnId": "$SUMMARY_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true,
+            "summaryRow": "sum",
+            "summaryLabel": "General Number of deleted Features"
+          }
+        ],
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$INDEX_COLUMN_ID": {
+                  "label": "Index name",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "metadata.sourceIndex.keyword",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "alphabetical",
+                      "fallback": true
+                    },
+                    "orderDirection": "asc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    }
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_IDX0": {
+                  "label": "Part of Number of deleted Features (SourceVersion:$SOURCE_VERSION; TargetVersion:$TARGET_VERSION)",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "deletedFeatureIds.keyword",
+                  "filter": {
+                    "query": "metadata.sourceVersion.keyword : \"$SOURCE_VERSION\" and metadata.targetVersion.keyword : \"$TARGET_VERSION\"",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": false
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_ID": {
+                  "label": "Number of deleted Features (SourceVersion:$SOURCE_VERSION; TargetVersion:$TARGET_VERSION)",
+                  "dataType": "number",
+                  "operationType": "formula",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "params": {
+                    "formula": "count(deletedFeatureIds.keyword)",
+                    "isFormulaBroken": false
+                  },
+                  "references": [
+                    "$SUMMARY_COLUMN_IDX0"
+                  ],
+                  "filter": {
+                    "query": "metadata.sourceVersion.keyword : \"$SOURCE_VERSION\" and metadata.targetVersion.keyword : \"$TARGET_VERSION\"",
+                    "language": "kuery"
+                  },
+                  "customLabel": true
+                }
+              },
+              "columnOrder": [
+                "$INDEX_COLUMN_ID",
+                "$SUMMARY_COLUMN_ID",
+                "$SUMMARY_COLUMN_IDX0"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

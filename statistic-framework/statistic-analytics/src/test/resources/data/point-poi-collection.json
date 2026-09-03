@@ -1,0 +1,158 @@
+{
+  "type": "FeatureCollection",
+  "features":
+  [
+    {
+      "class": "com.intellias.statistic.model.feature.PointFeature",
+      "featureId": "545366907-2",
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates":
+        [
+          6.266391528770328,
+          49.74499387666583
+        ]
+      },
+      "properties":
+      {
+        "version": "2",
+        "featureType": "POI",
+        "timestamp": "2025-03-22T20:15:57.678+0200",
+        "featureProperties":
+        [
+          {
+            "key": "ISO_DETAILS",
+            "values":
+            [
+              "LUX LU-EC"
+            ]
+          },
+          {
+            "key": "HOUSE_NUMBER",
+            "values":
+            [
+              "8"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_HIERARCHY",
+            "values":
+            [
+              "MUNICIPALITY - Bech",
+              "SUB_COUNTRY - Canton Echternach",
+              "COUNTRY - Luxembourg"
+            ]
+          },
+          {
+            "key": "ROAD_NAME",
+            "values":
+            [
+              "Haupeschbierg"
+            ]
+          },
+          {
+            "key": "NAME",
+            "values":
+            [
+              "Hondsschoul Heureka"
+            ]
+          },
+          {
+            "key": "CATEGORY",
+            "values":
+            [
+              "Shop"
+            ]
+          }
+        ]
+      },
+      "type": "Feature"
+    },
+    {
+      "class": "com.intellias.statistic.model.feature.PointFeature",
+      "featureId": "545366907-1",
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates":
+        [
+          6.264413483440876,
+          49.74290829151869
+        ]
+      },
+      "properties":
+      {
+        "version": "2",
+        "featureType": "POI",
+        "timestamp": "2025-03-22T20:15:57.678+0200",
+        "featureProperties":
+        [
+          {
+            "key": "ISO_DETAILS",
+            "values":
+            [
+              "LUX LU-GR"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_HIERARCHY",
+            "values":
+            [
+              "MUNICIPALITY - Junglinster",
+              "SUB_COUNTRY - Canton Grevenmacher",
+              "COUNTRY - Luxembourg"
+            ]
+          }
+        ]
+      },
+      "type": "Feature"
+    },
+    {
+      "class": "com.intellias.statistic.model.feature.PointFeature",
+      "featureId": "545366907-1",
+      "geometry":
+      {
+        "type": "Point",
+        "coordinates":
+        [
+          6.264413483440876,
+          49.74290829151869
+        ]
+      },
+      "properties":
+      {
+        "version": "1",
+        "featureType": "POI",
+        "timestamp": "2025-03-22T20:15:57.678+0200",
+        "featureProperties":
+        [
+          {
+            "key": "ISO_DETAILS",
+            "values":
+            [
+              "LUX LU-GR"
+            ]
+          },
+          {
+            "key": "ADMINISTRATIVE_HIERARCHY",
+            "values":
+            [
+              "MUNICIPALITY - Junglinster",
+              "SUB_COUNTRY - Canton Grevenmacher",
+              "COUNTRY - Luxembourg from first version"
+            ]
+          },
+          {
+            "key": "CATEGORY",
+            "values":
+            [
+              "POICAT_ACCESS_POINT"
+            ]
+          }
+        ]
+      },
+      "type": "Feature"
+    }
+  ]
+}

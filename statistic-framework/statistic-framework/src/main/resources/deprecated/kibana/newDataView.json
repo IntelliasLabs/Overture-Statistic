@@ -1,0 +1,18 @@
+{
+  "contentTypeId": "index-pattern",
+  "data": {
+    "fieldAttrs": "{}",
+    "title": " index",
+    "sourceFilters": "[]",
+    "fields": "[]",
+    "fieldFormatMap": "{}",
+    "runtimeFieldMap": "{}",
+    "name": "dataViewName",
+    "allowHidden": false
+  },
+  "options": {
+    "id": "dataViewUuid",
+    "overwrite": false
+  },
+  "version": 1
+}

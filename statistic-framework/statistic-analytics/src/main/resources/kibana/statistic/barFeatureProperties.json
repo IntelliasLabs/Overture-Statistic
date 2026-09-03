@@ -1,0 +1,128 @@
+{
+  "type": "lens",
+  "version": "WzExMTAsMjJd",
+  "attributes": {
+    "title": "barFeatureProperties",
+    "description": "",
+    "visualizationType": "lnsXY",
+    "state": {
+      "visualization": {
+        "title": "Empty XY chart",
+        "legend": {
+          "isVisible": true,
+          "position": "right"
+        },
+        "valueLabels": "hide",
+        "preferredSeriesType": "bar_stacked",
+        "layers": [
+          {
+            "layerId": "$DATASOURCE_LAYER_ID",
+            "accessors": [
+              "$SECOND_COLUMN_ID"
+            ],
+            "position": "top",
+            "seriesType": "bar_stacked",
+            "showGridlines": false,
+            "layerType": "data",
+            "colorMapping": {
+              "assignments": [],
+              "specialAssignments": [
+                {
+                  "rule": {
+                    "type": "other"
+                  },
+                  "color": {
+                    "type": "loop"
+                  },
+                  "touched": false
+                }
+              ],
+              "paletteId": "eui_amsterdam_color_blind",
+              "colorMode": {
+                "type": "categorical"
+              }
+            },
+            "xAccessor": "$FIRST_COLUMN_ID"
+          }
+        ]
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$FIRST_COLUMN_ID": {
+                  "label": "Top 20 values of properties.featureProperties.key.keyword",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "properties.featureProperties.key.keyword",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "custom"
+                    },
+                    "orderAgg": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "___records___",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": false,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    },
+                    "include": [],
+                    "exclude": [],
+                    "includeIsRegex": false,
+                    "excludeIsRegex": false
+                  }
+                },
+                "$SECOND_COLUMN_ID": {
+                  "label": "Count of records",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "params": {
+                    "emptyAsNull": true
+                  }
+                }
+              },
+              "columnOrder": [
+                "$FIRST_COLUMN_ID",
+                "$SECOND_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

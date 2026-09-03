@@ -1,0 +1,99 @@
+{
+  "type": "lens",
+  "attributes": {
+    "title": "Top 20 $SOURCE_FIELD",
+    "description": "",
+    "visualizationType": "lnsDatatable",
+    "state": {
+      "visualization": {
+        "columns": [
+          {
+            "columnId": "$FIRST_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": false
+          },
+          {
+            "columnId": "$SECOND_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true
+          }
+        ],
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$FIRST_COLUMN_ID": {
+                  "label": "Top 20 values of $SOURCE_FIELD",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "$SOURCE_FIELD",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "custom"
+                    },
+                    "orderAgg": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "___records___",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    }
+                  }
+                },
+                "$SECOND_COLUMN_ID": {
+                  "label": "Count of records",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "params": {
+                    "emptyAsNull": true
+                  }
+                }
+              },
+              "columnOrder": [
+                "$FIRST_COLUMN_ID",
+                "$SECOND_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

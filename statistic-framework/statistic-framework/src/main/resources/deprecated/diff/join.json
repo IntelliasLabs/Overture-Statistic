@@ -1,0 +1,6 @@
+{
+  "script": {
+    "source": "    if (ctx._source.grouped_data.size() == 2) {\n      // Compare the two objects\n      def first = ctx._source.grouped_data[0].data;\n      def second = ctx._source.grouped_data[1].data;\n      \n      if (first.equals(second)) {\n        // Remove the field if both objects are identical\n        ctx._source.remove(\"grouped_data\");\n        ctx._source.remove(\"unique_field\");\n        ctx._source.to_delete = true;\n      } else {\n        // Find differences between the objects\n        def differences_a = [:];\n        def differences_b = [:];\n        differences_a.put(\"index_name\", ctx._source.grouped_data[0].source_index);\n        differences_b.put(\"index_name\", ctx._source.grouped_data[1].source_index);\n        for (entry in first.entrySet()) {\n          if (!second.containsKey(entry.getKey()) || second[entry.getKey()] != entry.getValue()) {\n            differences_a.put(entry.getKey(), entry.getValue());\n          }\n        }\n        for (entry in second.entrySet()) {\n          if (!first.containsKey(entry.getKey()) || first[entry.getKey()] != entry.getValue()) {\n            differences_b.put(entry.getKey(), entry.getValue());\n          }\n        }\n        ctx._source.grouped_data = [differences_a,differences_b];\n      }\n    }",
+    "lang": "painless"
+  }
+}

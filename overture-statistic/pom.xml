@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.3</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.intellias.mobility.statistic</groupId>
+    <artifactId>overture-statistic-parent</artifactId>
+    <version>0.01</version>
+    <packaging>pom</packaging>
+    <name>overture-statistic-parent</name>
+
+    <modules>
+        <module>overture-framework-extension-app</module>
+        <module>overture-converter-batch</module>
+    </modules>
+
+    <properties>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <testcontainers.version>1.21.4</testcontainers.version>
+        <spotless.version>2.43.0</spotless.version>
+        <statistic.version>0.1.1</statistic.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <name>GeoTools Repository</name>
+            <id>geo tools</id>
+            <url>https://repo.osgeo.org/repository/geotools-releases/</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--INTELLIAS-->
+            <dependency>
+                <groupId>com.intellias.mobility.statistic</groupId>
+                <artifactId>statistic-model</artifactId>
+                <version>${statistic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.intellias.mobility.statistic</groupId>
+                <artifactId>statistic-ingres</artifactId>
+                <version>${statistic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.intellias.mobility.statistic</groupId>
+                <artifactId>statistic-storage</artifactId>
+                <version>${statistic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.intellias.mobility.statistic</groupId>
+                <artifactId>statistic-framework</artifactId>
+                <version>${statistic.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.intellias.mobility.statistic</groupId>
+                <artifactId>statistic-analytics</artifactId>
+                <version>${statistic.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.testcontainers</groupId>
+                <artifactId>testcontainers-bom</artifactId>
+                <version>${testcontainers.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--SPRING-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.5.3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-elasticsearch</artifactId>
+                <version>5.4.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>co.elastic.clients</groupId>
+                <artifactId>elasticsearch-java</artifactId>
+                <version>8.15.5</version>
+            </dependency>
+
+            <!--OTHER-->
+            <dependency>
+                <groupId>de.grundid.opendatalab</groupId>
+                <artifactId>geojson-jackson</artifactId>
+                <version>1.14</version>
+            </dependency>
+            <dependency>
+                <groupId>one.util</groupId>
+                <artifactId>streamex</artifactId>
+                <version>0.8.3</version>
+                <scope>compile</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

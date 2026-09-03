@@ -1,0 +1,20 @@
+{
+  "locale": "autoselect",
+  "sourceDescriptor": {
+    "type": "EMS_TMS",
+    "isAutoSelect": true,
+    "lightModeDefault": "road_map_desaturated"
+  },
+  "id": "ae356bb4-9bb2-4097-a94c-83bb2190f889",
+  "label": null,
+  "minZoom": 0,
+  "maxZoom": 24,
+  "alpha": 1,
+  "visible": true,
+  "style": {
+    "type": "EMS_VECTOR_TILE",
+    "color": ""
+  },
+  "includeInFitToBounds": true,
+  "type": "EMS_VECTOR_TILE"
+}

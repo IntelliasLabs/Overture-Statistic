@@ -1,0 +1,98 @@
+{
+  "class": "com.intellias.statistic.model.feature.LineFeature",
+  "id": "id1",
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [
+        6.137156353662704,
+        49.60200863275489
+      ],
+      [
+        6.13764026954567,
+        49.60122805471545
+      ],
+      [
+        6.14197400512117,
+        49.602768290455515
+      ],
+      [
+        6.142608472612494,
+        49.60118623768196
+      ],
+      [
+        6.142500935748842,
+        49.600858669680406
+      ],
+      [
+        6.140941651237199,
+        49.599255645597566
+      ]
+    ]
+  },
+  "properties": {
+    "version": "v1",
+    "featureType": "ROAD2",
+    "timestamp": "2025-02-17T12:21:53.052+0200",
+    "additionalProperties": {
+      "key": "value"
+    },
+    "rangeAttributes": [
+      {
+        "key": "speed-limit",
+        "values": [
+          {
+            "value": "50km",
+            "ranges": [
+              {
+                "start": 0,
+                "end": 0.2
+              },
+              {
+                "start": 0.2,
+                "end": 0.5
+              }
+            ]
+          },
+          {
+            "value": "40km",
+            "ranges": [
+              {
+                "start": 0.5,
+                "end": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "names",
+        "values": [
+          {
+            "value": "FirstName",
+            "ranges": [
+              {
+                "start": 0,
+                "end": 0.2
+              },
+              {
+                "start": 0.2,
+                "end": 0.5
+              }
+            ]
+          },
+          {
+            "value": "SecondName",
+            "ranges": [
+              {
+                "start": 0.5,
+                "end": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "type": "Feature"
+}

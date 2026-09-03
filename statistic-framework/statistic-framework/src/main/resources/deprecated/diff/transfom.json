@@ -1,0 +1,30 @@
+{
+  "source": {
+    "index": [
+      "firstIndex",
+      "secondIndex"
+    ]
+  },
+  "dest": {
+    "index": "joined_index"
+  },
+  "pivot": {
+    "group_by": {
+      "unique_field": {
+        "terms": {
+          "field": "id_keyword"
+        }
+      }
+    },
+    "aggregations": {
+      "grouped_data": {
+        "scripted_metric": {
+          "init_script": "state.docs = []",
+          "map_script": "\r\nstate.docs.add([\r\n  'source_index': doc._index,\r\n 'data': params._source\r\n])\r\n",
+          "combine_script": "return state.docs",
+          "reduce_script": "\r\ndef all_docs = [];\r\n for (s in states) { \r\n  all_docs.addAll(s); \r\n}\r\nreturn all_docs;\r\n"
+        }
+      }
+    }
+  }
+}

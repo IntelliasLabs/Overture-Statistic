@@ -1,0 +1,125 @@
+{
+  "type": "lens",
+  "version": "WzEwNTUsMjJd",
+  "attributes": {
+    "title": "pie $SOURCE_FIELD",
+    "description": "",
+    "visualizationType": "lnsPie",
+    "state": {
+      "visualization": {
+        "shape": "pie",
+        "layers": [
+          {
+            "layerId": "$DATASOURCE_LAYER_ID",
+            "primaryGroups": [
+              "$FIRST_COLUMN_ID"
+            ],
+            "metrics": [
+              "$SECOND_COLUMN_ID"
+            ],
+            "numberDisplay": "percent",
+            "categoryDisplay": "default",
+            "legendDisplay": "default",
+            "nestedLegend": false,
+            "layerType": "data",
+            "colorMapping": {
+              "assignments": [],
+              "specialAssignments": [
+                {
+                  "rule": {
+                    "type": "other"
+                  },
+                  "color": {
+                    "type": "loop"
+                  },
+                  "touched": false
+                }
+              ],
+              "paletteId": "eui_amsterdam_color_blind",
+              "colorMode": {
+                "type": "categorical"
+              }
+            }
+          }
+        ]
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$FIRST_COLUMN_ID": {
+                  "label": "Top 100 values of $SOURCE_FIELD",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "$SOURCE_FIELD",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 100,
+                    "orderBy": {
+                      "type": "custom"
+                    },
+                    "orderAgg": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "___records___",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    },
+                    "include": [],
+                    "exclude": [],
+                    "includeIsRegex": false,
+                    "excludeIsRegex": false
+                  }
+                },
+                "$SECOND_COLUMN_ID": {
+                  "label": "Count of records",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "params": {
+                    "emptyAsNull": true
+                  }
+                }
+              },
+              "columnOrder": [
+                "$FIRST_COLUMN_ID",
+                "$SECOND_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

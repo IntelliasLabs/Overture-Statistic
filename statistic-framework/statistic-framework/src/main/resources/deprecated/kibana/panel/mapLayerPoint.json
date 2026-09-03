@@ -1,0 +1,16 @@
+{
+  "id": "3a4e9b6f-d9d5-49c5-ac4e-fe9c7ecdfa2f",
+  "sourceDescriptor": {
+    "geoField": "geometry",
+    "id": "38d464e3-0852-4401-bda3-6d9ca75addc4",
+    "label": "index",
+    "scalingType": "MVT",
+    "tooltipProperties": [],
+    "type": "ES_SEARCH",
+    "indexPatternRefName": "layer_1_source_index_pattern"
+  },
+  "type": "MVT_VECTOR",
+  "visible": true,
+  "style": {
+  }
+}

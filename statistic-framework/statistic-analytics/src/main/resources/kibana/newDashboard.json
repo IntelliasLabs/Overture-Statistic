@@ -1,0 +1,18 @@
+{
+  "contentTypeId": "dashboard",
+  "data": {
+    "version": 2,
+    "kibanaSavedObjectMeta": {
+      "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+    },
+    "description": "dashboardDescription",
+    "timeRestore": false,
+    "optionsJSON": "{\"useMargins\":true,\"syncColors\":false,\"syncCursor\":true,\"syncTooltips\":false,\"hidePanelTitles\":false}",
+    "panelsJSON": "[]",
+    "title": "dashboardName"
+  },
+  "options": {
+    "references": []
+  },
+  "version": 2
+}

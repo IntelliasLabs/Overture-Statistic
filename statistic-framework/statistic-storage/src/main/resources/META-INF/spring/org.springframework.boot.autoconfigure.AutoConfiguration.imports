@@ -1,0 +1,4 @@
+com.intellias.mobility.statistic.framework.elastic.ElasticClientConfig
+com.intellias.mobility.statistic.framework.storage.StorageConfiguration
+com.intellias.mobility.statistic.framework.templates.TemplateConfiguration
+com.intellias.mobility.statistic.framework.property.FeaturePropertyDocumentsConfiguration

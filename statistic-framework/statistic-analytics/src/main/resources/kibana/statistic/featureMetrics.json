@@ -1,0 +1,84 @@
+{
+  "type": "lens",
+  "version": "WzE0MDMsMjNd",
+  "attributes":
+  {
+    "title": "$OPERATION_TYPE $SOURCE_FIELD",
+    "description": "",
+    "visualizationType": "lnsMetric",
+    "state":
+    {
+      "visualization":
+      {
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data",
+        "metricAccessor": "$FIRST_COLUMN_ID"
+      },
+      "query":
+      {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters":
+      [],
+      "datasourceStates":
+      {
+        "formBased":
+        {
+          "layers":
+          {
+            "$DATASOURCE_LAYER_ID":
+            {
+              "columns":
+              {
+                "$FIRST_COLUMN_ID":
+                {
+                  "label": "$OPERATION_TYPE of $SOURCE_FIELD",
+                  "dataType": "number",
+                  "operationType": "$OPERATION_TYPE",
+                  "sourceField": "$SOURCE_FIELD",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "params":
+                  {
+                    "emptyAsNull": true
+                  }
+                }
+              },
+              "columnOrder":
+              [
+                "$FIRST_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns":
+              {}
+            }
+          }
+        },
+        "indexpattern":
+        {
+          "layers":
+          {}
+        },
+        "textBased":
+        {
+          "layers":
+          {}
+        }
+      },
+      "internalReferences":
+      [],
+      "adHocDataViews":
+      {}
+    }
+  },
+  "references":
+  [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

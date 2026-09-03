@@ -1,0 +1,203 @@
+{
+  "type": "lens",
+  "attributes": {
+    "title": "General Feature Count Difference",
+    "visualizationType": "lnsDatatable",
+    "state": {
+      "visualization": {
+        "columns": [
+          {
+            "columnId": "$INDEX_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": false
+          },
+          {
+            "columnId": "$FIRST_VERSION_COUNT_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true
+          },
+          {
+            "columnId": "$SECOND_VERSION_COUNT_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true
+          },
+          {
+            "columnId": "$SUMMARY_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true,
+            "summaryRow": "sum",
+            "summaryLabel": "General Features count diff"
+          }
+        ],
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$INDEX_COLUMN_ID": {
+                  "label": "Index Name",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "_index",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "column",
+                      "columnId": "$FIRST_VERSION_COUNT_COLUMN_ID"
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    }
+                  },
+                  "customLabel": true
+                },
+                "$FIRST_VERSION_COUNT_COLUMN_ID": {
+                  "label": "CountOfFeatures (version:$SOURCE_VERSION)",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "filter": {
+                    "query": "properties.version.keyword : \"$SOURCE_VERSION\" ",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": true
+                  },
+                  "customLabel": true
+                },
+                "$SECOND_VERSION_COUNT_COLUMN_ID": {
+                  "label": "CountOfFeatures (version:$TARGET_VERSION)",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "filter": {
+                    "query": "properties.version.keyword : \"$TARGET_VERSION\" ",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": true
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_IDX0": {
+                  "label": "Part of count(kql='properties.version:$SOURCE_VERSION') - count(kql='properties.version:$TARGET_VERSION')",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "filter": {
+                    "query": "properties.version:$SOURCE_VERSION",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": false
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_IDX1": {
+                  "label": "Part of count(kql='properties.version:$SOURCE_VERSION') - count(kql='properties.version:$TARGET_VERSION')",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "filter": {
+                    "query": "properties.version:$TARGET_VERSION",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": false
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_IDX2": {
+                  "label": "Part of count(kql='properties.version:$SOURCE_VERSION') - count(kql='properties.version:$TARGET_VERSION')",
+                  "dataType": "number",
+                  "operationType": "math",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "params": {
+                    "tinymathAst": {
+                      "type": "function",
+                      "name": "subtract",
+                      "args": [
+                        "$SUMMARY_COLUMN_IDX0",
+                        "$SUMMARY_COLUMN_IDX1"
+                      ],
+                      "location": {
+                        "min": 0,
+                        "max": 69
+                      },
+                      "text": "count(kql='properties.version:$SOURCE_VERSION') - count(kql='properties.version:$TARGET_VERSION')"
+                    }
+                  },
+                  "references": [
+                    "$SUMMARY_COLUMN_IDX0",
+                    "$SUMMARY_COLUMN_IDX1"
+                  ],
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_ID": {
+                  "label": "Feature count diff (version:$SOURCE_VERSION-version:$TARGET_VERSION)",
+                  "dataType": "number",
+                  "operationType": "formula",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "params": {
+                    "formula": "count(kql='properties.version:$SOURCE_VERSION') - count(kql='properties.version:$TARGET_VERSION')",
+                    "isFormulaBroken": false
+                  },
+                  "references": [
+                    "$SUMMARY_COLUMN_IDX2"
+                  ],
+                  "customLabel": true
+                }
+              },
+              "columnOrder": [
+                "$INDEX_COLUMN_ID",
+                "$FIRST_VERSION_COUNT_COLUMN_ID",
+                "$SECOND_VERSION_COUNT_COLUMN_ID",
+                "$SUMMARY_COLUMN_ID",
+                "$SUMMARY_COLUMN_IDX0",
+                "$SUMMARY_COLUMN_IDX1",
+                "$SUMMARY_COLUMN_IDX2"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references":
+  [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+
+}

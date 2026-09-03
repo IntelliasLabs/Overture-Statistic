@@ -1,0 +1,135 @@
+{
+  "type": "lens",
+  "version": "WzExMTUsMjJd",
+  "attributes": {
+    "title": "$PANEL_TITLE",
+    "description": "",
+    "visualizationType": "lnsDatatable",
+    "state": {
+      "visualization": {
+        "columns": [
+          {
+            "columnId": "$SECOND_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": false
+          },
+          {
+            "columnId": "$THIRD_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true
+          },
+          {
+            "columnId": "$FIRST_COLUMN_ID",
+            "isTransposed": true,
+            "isMetric": false
+          }
+        ],
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$SECOND_COLUMN_ID": {
+                  "label": "$PRIMARY_BUCKET_LABEL",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "$SOURCE_FIELD_PRIMARY",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 100,
+                    "orderBy": {
+                      "type": "custom"
+                    },
+                    "orderAgg": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "___records___",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    },
+                    "include": [],
+                    "exclude": [],
+                    "includeIsRegex": false,
+                    "excludeIsRegex": false
+                  }
+                },
+                "$THIRD_COLUMN_ID": {
+                  "label": "Count of records",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "params": {
+                    "emptyAsNull": true
+                  }
+                },
+                "$FIRST_COLUMN_ID": {
+                  "label": "$SECONDARY_BUCKET_LABEL",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "$SOURCE_FIELD_SECONDARY",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "column",
+                      "columnId": "$THIRD_COLUMN_ID"
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    },
+                    "include": [],
+                    "exclude": [],
+                    "includeIsRegex": false,
+                    "excludeIsRegex": false
+                  }
+                }
+              },
+              "columnOrder": [
+                "$FIRST_COLUMN_ID",
+                "$SECOND_COLUMN_ID",
+                "$THIRD_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

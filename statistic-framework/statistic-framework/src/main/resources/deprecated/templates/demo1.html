@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kibana Requests Page</title>
+    <script>
+        async function sendPostRequest(actionUrl) {
+            // Send the request to the specified action URL
+            const response = await fetch(actionUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                }
+            });
+
+            // Display the response in the output area
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        };
+
+        async function uploadJson(event) {
+        event.preventDefault();
+        const filePath = document.getElementById('filePath').value;
+        const indiceName = document.getElementById('indiceName').value;
+
+        try {
+            const response = await fetch('/demo/uploadJson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ filePath, indiceName })
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value =result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+        async function uploadGeoJson(event) {
+        event.preventDefault();
+        const fileGeoPath = document.getElementById('fileGeoPath').value;
+        const indiceGeoName = document.getElementById('indiceGeoName').value;
+
+        try {
+            const response = await fetch('/demo/uploadGeoJson', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ fileGeoPath, indiceGeoName })
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value =result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+       async function deleteIndex(event) {
+        event.preventDefault();
+        const indiceNameForRem = document.getElementById('indiceNameForRem').value;
+
+        try {
+            const response = await fetch('/demo/removeIndice', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indiceNameForRem})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+        async function buildDashboard(event) {
+        event.preventDefault();
+        const indiceNameForDash = document.getElementById('indiceNameForDash').value;
+        const dashboardName = document.getElementById('dashboardName').value;
+
+        try {
+            const response = await fetch('/demo/buildDashboard', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indiceNameForDash,dashboardName})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+        async function searchByName(event) {
+        event.preventDefault();
+        const searchString = document.getElementById('searchString').value;
+        const indexForSearch = document.getElementById('indexForSearch').value;
+
+        try {
+            const response = await fetch('/demo/searchByName', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indexForSearch,searchString})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+        async function searchByPointDistance(event) {
+        event.preventDefault();
+        const indexForSearchD = document.getElementById('indexForSearchD').value;
+        const distance = document.getElementById('distance').value;
+        const lat = document.getElementById('lat').value;
+        const lon = document.getElementById('lon').value;
+
+        try {
+            const response = await fetch('/demo/searchByPointDistance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indexForSearchD,distance,lat,lon})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+         async function createDiff(event) {
+        event.preventDefault();
+        const indexDiff = document.getElementById('indexDiff').value;
+        const indexOld = document.getElementById('indexOld').value;
+        const indexNew = document.getElementById('indexNew').value;
+        const fieldUnique = document.getElementById('fieldUnique').value;
+
+        try {
+            const response = await fetch('/demo/createDiff', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indexDiff,indexOld,indexNew,fieldUnique})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+
+                async function buildDashboardWidgets(event) {
+        event.preventDefault();
+        const indiceNameForDashW = document.getElementById('indiceNameForDashW').value;
+        const dashboardNameW = document.getElementById('dashboardNameW').value;
+        const countHistoNameW = document.getElementById('countHistoNameW').value;
+        const countNameW = document.getElementById('countNameW').value;
+
+        try {
+            const response = await fetch('/demo/buildDashboardWidgets', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({indiceNameForDashW,dashboardNameW,countHistoNameW,countNameW})
+            });
+
+            const result = await response.text();
+            document.getElementById("output").value = result;
+        } catch (error) {
+            document.getElementById("output").value = 'Error: ' + error.message;
+        }
+        };
+    </script>
+</head>
+<body>
+<h1>Send requests</h1>
+<table>
+    <tr>
+        <td><h3>Check server globally</h3>
+            <button onclick="sendPostRequest('/demo/checkServer')">Check</button>
+            <br>
+        </td>
+        <td><h3>Show server health</h3>
+            <button onclick="sendPostRequest('/demo/checkHealth')">Show</button>
+            <br>
+        </td>
+        <td><h3>Show indices list</h3>
+            <button onclick="sendPostRequest('/demo/showIndices')">Show</button>
+            <br>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><h3>Add JSON</h3>
+            <form id="uploadForm" onsubmit="uploadJson(event)">
+                <div class="form-group">
+                    <label for="filePath">Path to JSON file:</label>
+                    <input type="text" id="filePath" name="filePath" required>
+                </div>
+                <div class="form-group">
+                    <label for="indiceName">Index Name:</label>
+                    <input type="text" id="indiceName" name="indiceName">
+                </div>
+                <button type="submit">Upload</button>
+            </form>
+            <br>
+        </td>
+        <td><h3>Add GeoJSON</h3>
+            <form id="uploadGeoForm" onsubmit="uploadGeoJson(event)">
+                <div class="form-group">
+                    <label for="fileGeoPath">Path to JSON file:</label>
+                    <input type="text" id="fileGeoPath" name="fileGeoPath" required>
+                </div>
+                <div class="form-group">
+                    <label for="indiceGeoName">Index Name:</label>
+                    <input type="text" id="indiceGeoName" name="indiceGeoName">
+                </div>
+                <button type="submit">Upload</button>
+            </form>
+            <br>
+        </td>
+        <td><h3>Remove index</h3>
+            <form id="deleteForm" onsubmit="deleteIndex(event)">
+                <div class="form-group">
+                    <label for="indiceNameForRem">Index name:</label>
+                    <input type="text" id="indiceNameForRem" name="indiceNameForRem">
+                </div>
+                <button type="submit">Remove</button>
+            </form>
+            <br>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><h3>Create dashboard</h3>
+            <form id="buildDashboard" onsubmit="buildDashboard(event)">
+                <div class="form-group">
+                    <label for="indiceNameForDash">Indice Name:</label>
+                    <input type="text" id="indiceNameForDash" name="indiceNameForDash">
+                </div>
+                <div class="form-group">
+                    <label for="dashboardName">Dashboard Name:</label>
+                    <input type="text" id="dashboardName" name="dashboardName">
+                </div>
+                <button type="submit">Create</button>
+            </form>
+            <br>
+        </td>
+        <td><h3>Search by name</h3>
+            <form id="searchByName" onsubmit="searchByName(event)">
+                <div class="form-group">
+                    <label for="indexForSearch">Index:</label>
+                    <input type="text" id="indexForSearch" name="indexForSearch">
+                </div>
+                <div class="form-group">
+                    <label for="searchString">Name:</label>
+                    <input type="text" id="searchString" name="searchString">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+            <br>
+        </td>
+        <td><h3>Search by point distance</h3>
+            <form id="searchByPointDistance" onsubmit="searchByPointDistance(event)">
+                <div class="form-group">
+                    <label for="indexForSearchD">Index:</label>
+                    <input type="text" id="indexForSearchD" name="indexForSearchD">
+                </div>
+                <div class="form-group">
+                    <label for="distance">Distance:</label>
+                    <input type="text" id="distance" name="distance">
+                </div>
+                <div class="form-group">
+                    <label for="lat">Lat:</label>
+                    <input type="text" id="lat" name="lat">
+                </div>
+                <div class="form-group">
+                    <label for="lon">Lon:</label>
+                    <input type="text" id="lon" name="lon">
+                </div>
+                <button type="submit">Search</button>
+            </form>
+            <br>
+        </td>
+        <td>
+            <h3>Create diff index</h3>
+            <form id="createDiff" onsubmit="createDiff(event)">
+                <div class="form-group">
+                    <label for="indexDiff">Diff index:</label>
+                    <input type="text" id="indexDiff" name="indexDiff">
+                </div>
+                <div class="form-group">
+                    <label for="indexOld">Old index:</label>
+                    <input type="text" id="indexOld" name="indexOld">
+                </div>
+                <div class="form-group">
+                    <label for="indexNew">New index:</label>
+                    <input type="text" id="indexNew" name="indexNew">
+                </div>
+                <div class="form-group">
+                    <label for="fieldUnique">Unique field name:</label>
+                    <input type="text" id="fieldUnique" name="fieldUnique">
+                </div>
+                <button type="submit">Create</button>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td><h3>Create dashboard and widgets</h3>
+            <form id="buildDashboardWidgets" onsubmit="buildDashboardWidgets(event)">
+                <div class="form-group">
+                    <label for="indiceNameForDashW">Indice Name:</label>
+                    <input type="text" id="indiceNameForDashW" name="indiceNameForDashW">
+                </div>
+                <div class="form-group">
+                    <label for="dashboardNameW">Dashboard Name:</label>
+                    <input type="text" id="dashboardNameW" name="dashboardNameW">
+                </div>
+                <div class="form-group">
+                    <label for="countHistoNameW">Count histogram field name:</label>
+                    <input type="text" id="countHistoNameW" name="countHistoNameW">
+                </div>
+                <div class="form-group">
+                    <label for="countNameW">Count field name:</label>
+                    <input type="text" id="countNameW" name="countNameW">
+                </div>
+                <button type="submit">Create</button>
+            </form>
+            <br>
+        </td>
+    </tr>
+</table>
+
+<br>
+<br>
+<textarea id="output" rows="10" cols="50" readonly placeholder="Response will appear here"></textarea>
+</body>
+</html>

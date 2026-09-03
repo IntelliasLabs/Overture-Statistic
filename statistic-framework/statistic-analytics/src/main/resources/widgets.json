@@ -1,0 +1,12 @@
+{
+  "statIndex": {
+    "geometry": [
+      "map"
+    ],
+    "roadType.keyword": [
+      "countHistogram",
+      "count"
+    ]
+  },
+  "name": "Dashboard name"
+}

@@ -1,0 +1,76 @@
+{
+  "main": {
+    "type": "lens",
+    "gridData": {
+      "x": 0,
+      "y": 30,
+      "w": 24,
+      "h": 15,
+      "i": "panelUuid"
+    },
+    "panelIndex": "panelUuid",
+    "embeddableConfig": {
+      "attributes": {
+        "title": "",
+        "visualizationType": "lnsLegacyMetric",
+        "type": "lens",
+        "references": [{
+          "type": "index-pattern",
+          "id": "dataViewUuid",
+          "name": "indexpattern-datasource-layer-layerUuid"
+        }
+        ],
+        "state": {
+          "visualization": {
+            "layerId": "layerUuid",
+            "accessor": "columnUuid",
+            "layerType": "data"
+          },
+          "query": {
+            "query": "",
+            "language": "kuery"
+          },
+          "filters": [],
+          "datasourceStates": {
+            "formBased": {
+              "layers": {
+                "layerUuid": {
+                  "columns": {
+                    "columnUuid": {
+                      "label": "Count of fieldNotUuid",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "fieldNotUuid",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    }
+                  },
+                  "columnOrder": ["columnUuid"],
+                  "incompleteColumns": {}
+                }
+              }
+            },
+            "indexpattern": {
+              "layers": {}
+            },
+            "textBased": {
+              "layers": {}
+            }
+          },
+          "internalReferences": [],
+          "adHocDataViews": {}
+        }
+      },
+      "enhancements": {}
+    },
+    "title": "Count of fieldNotUuid"
+  },
+  "reference": {
+    "type": "index-pattern",
+    "id": "dataViewUuid",
+    "name": "panelUuid:indexpattern-datasource-layer-layerUuid"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "main": {
+    "type": "lens",
+    "gridData": {
+      "x": 24,
+      "y": 0,
+      "w": 24,
+      "h": 15,
+      "i": "panelUuid"
+    },
+    "panelIndex": "panelUuid",
+    "embeddableConfig": {
+      "attributes": {
+        "title": "",
+        "visualizationType": "lnsXY",
+        "type": "lens",
+        "references": [
+          {
+            "type": "index-pattern",
+            "id": "dataViewUuid",
+            "name": "indexpattern-datasource-layer-layerUuid"
+          }
+        ],
+        "state": {
+          "visualization": {
+            "legend": {
+              "isVisible": true,
+              "position": "right"
+            },
+            "valueLabels": "hide",
+            "fittingFunction": "None",
+            "axisTitlesVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "tickLabelsVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "labelsOrientation": {
+              "x": 0,
+              "yLeft": 0,
+              "yRight": 0
+            },
+            "gridlinesVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "preferredSeriesType": "bar",
+            "layers": [
+              {
+                "layerId": "layerUuid",
+                "seriesType": "bar",
+                "xAccessor": "xLevelUuid",
+                "accessors": [
+                  "yLevelUuid"
+                ],
+                "layerType": "data",
+                "colorMapping": {
+                  "assignments": [],
+                  "specialAssignments": [
+                    {
+                      "rule": {
+                        "type": "other"
+                      },
+                      "color": {
+                        "type": "loop"
+                      },
+                      "touched": false
+                    }
+                  ],
+                  "paletteId": "eui_amsterdam_color_blind",
+                  "colorMode": {
+                    "type": "categorical"
+                  }
+                }
+              }
+            ]
+          },
+          "query": {
+            "query": "",
+            "language": "kuery"
+          },
+          "filters": [],
+          "datasourceStates": {
+            "formBased": {
+              "layers": {
+                "layerUuid": {
+                  "columns": {
+                    "yLevelUuid": {
+                      "label": "Count of fieldNotUuid",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "fieldNotUuid",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    },
+                    "xLevelUuid": {
+                      "label": "fieldNotUuid",
+                      "dataType": "number",
+                      "operationType": "range",
+                      "sourceField": "fieldNotUuid",
+                      "isBucketed": true,
+                      "scale": "interval",
+                      "params": {
+                        "includeEmptyRows": true,
+                        "type": "histogram",
+                        "ranges": [
+                          {
+                            "from": 0,
+                            "to": 1000,
+                            "label": ""
+                          }
+                        ],
+                        "maxBars": "auto"
+                      }
+                    }
+                  },
+                  "columnOrder": [
+                    "xLevelUuid",
+                    "yLevelUuid"
+                  ],
+                  "incompleteColumns": {}
+                }
+              }
+            },
+            "indexpattern": {
+              "layers": {}
+            },
+            "textBased": {
+              "layers": {}
+            }
+          },
+          "internalReferences": [],
+          "adHocDataViews": {}
+        }
+      },
+      "enhancements": {}
+    },
+    "title": "Count histogram of fieldNotUuid"
+  },
+  "reference": {
+    "type": "index-pattern",
+    "id": "dataViewUuid",
+    "name": "panelUuid:indexpattern-datasource-layer-layerUuid"
+  }
+}

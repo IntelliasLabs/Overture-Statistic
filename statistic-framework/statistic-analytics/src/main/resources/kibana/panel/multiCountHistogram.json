@@ -1,0 +1,157 @@
+{
+  "main": {
+    "type": "lens",
+    "gridData": {
+      "x": 0,
+      "y": 15,
+      "w": 24,
+      "h": 15,
+      "i": "panelUuid"
+    },
+    "panelIndex": "panelUuid",
+    "embeddableConfig": {
+      "attributes": {
+        "title": "",
+        "visualizationType": "lnsXY",
+        "type": "lens",
+        "references": {
+          "type": "index-pattern",
+          "id": "dataViewUuid",
+          "name": "indexpattern-datasource-layer-layerUuid"
+        },
+        "state": {
+          "visualization": {
+            "legend": {
+              "isVisible": true,
+              "position": "right"
+            },
+            "valueLabels": "hide",
+            "fittingFunction": "None",
+            "axisTitlesVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "tickLabelsVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "labelsOrientation": {
+              "x": 0,
+              "yLeft": 0,
+              "yRight": 0
+            },
+            "gridlinesVisibilitySettings": {
+              "x": true,
+              "yLeft": true,
+              "yRight": true
+            },
+            "preferredSeriesType": "bar",
+            "layers": {
+              "layerId": "layerUuid",
+              "accessors": [
+                "columnUuid2"
+              ],
+              "position": "top",
+              "seriesType": "bar",
+              "showGridlines": false,
+              "layerType": "data",
+              "colorMapping": {
+                "assignments": [],
+                "specialAssignments": [
+                  {
+                    "rule": {
+                      "type": "other"
+                    },
+                    "color": {
+                      "type": "loop"
+                    },
+                    "touched": false
+                  }
+                ],
+                "paletteId": "eui_amsterdam_color_blind",
+                "colorMode": {
+                  "type": "categorical"
+                }
+              },
+              "xAccessor": "columnUuid1"
+            }
+          },
+          "query": {
+            "query": "",
+            "language": "kuery"
+          },
+          "filters": [],
+          "datasourceStates": {
+            "formBased": {
+              "layers": {
+                "layerUuid": {
+                  "columns": {
+                    "columnUuid1": {
+                      "label": "Top 5 values of key.keyword",
+                      "dataType": "string",
+                      "operationType": "terms",
+                      "scale": "ordinal",
+                      "sourceField": "key.keyword",
+                      "isBucketed": true,
+                      "params": {
+                        "size": 5,
+                        "orderBy": {
+                          "type": "column",
+                          "columnId": "columnUuid2"
+                        },
+                        "orderDirection": "desc",
+                        "otherBucket": true,
+                        "missingBucket": false,
+                        "parentFormat": {
+                          "id": "terms"
+                        },
+                        "include": [],
+                        "exclude": [],
+                        "includeIsRegex": false,
+                        "excludeIsRegex": false
+                      }
+                    },
+                    "columnUuid2": {
+                      "label": "Count of records",
+                      "dataType": "number",
+                      "operationType": "count",
+                      "isBucketed": false,
+                      "scale": "ratio",
+                      "sourceField": "___records___",
+                      "params": {
+                        "emptyAsNull": true
+                      }
+                    }
+                  },
+                  "columnOrder": [
+                    "columnUuid1",
+                    "columnUuid2"
+                  ],
+                  "incompleteColumns": {},
+                  "sampling": 1
+                }
+              }
+            },
+            "indexpattern": {
+              "layers": {}
+            },
+            "textBased": {
+              "layers": {}
+            }
+          },
+          "internalReferences": [],
+          "adHocDataViews": {}
+        }
+      },
+      "enhancements": {}
+    },
+    "title": "Count histogram"
+  },
+  "reference": {
+    "type": "index-pattern",
+    "id": "dataViewUuid",
+    "name": "panelUuid:indexpattern-datasource-layer-layerUuid"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "type": "lens",
+  "version": "WzEwMjksMjJd",
+  "attributes": {
+    "title": "common_totalCount",
+    "description": "",
+    "visualizationType": "lnsMetric",
+    "state": {
+      "visualization": {
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data",
+        "metricAccessor": "$FIRST_COLUMN_ID"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$FIRST_COLUMN_ID": {
+                  "label": "Total count of records",
+                  "dataType": "number",
+                  "operationType": "count",
+                  "isBucketed": false,
+                  "scale": "ratio",
+                  "sourceField": "___records___",
+                  "params": {
+                    "emptyAsNull": true
+                  },
+                  "customLabel": true
+                }
+              },
+              "columnOrder": [
+                "$FIRST_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

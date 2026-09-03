@@ -1,0 +1,22 @@
+version: "2.8"
+
+services:
+  statistic-framework-app:
+    image: registry.CICD.com//statistic-framework-app:latest
+
+    # IMPORTANT:
+    # On the very first run, you need to create an Elasticsearch API token manually
+    # and set it via the ELASTIC_TOKEN environment variable.
+    environment:
+      - ELASTIC_BASE_URL=elastic-http:9201
+      - ELASTIC_TOKEN=${ELASTIC_TOKEN}
+      - KIBANA_URL=kibana:${KIBANA_PORT}
+
+    networks:
+      - intellias_shared
+    ports:
+      - "8101:8101"
+
+networks:
+  intellias_shared:
+    name: intellias_shared

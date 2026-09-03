@@ -1,0 +1,46 @@
+{
+  "main": {
+    "type": "map",
+    "gridData": {
+      "x": 0,
+      "y": 0,
+      "w": 24,
+      "h": 15,
+      "i": "panelUuid"
+    },
+    "panelIndex": "panelUuid",
+    "embeddableConfig": {
+      "attributes": {
+        "title": "",
+        "description": "",
+        "layerListJSON": "[{\"locale\":\"autoselect\",\"sourceDescriptor\":{\"type\":\"EMS_TMS\",\"isAutoSelect\":true,\"lightModeDefault\":\"road_map_desaturated\"},\"id\":\"vectorTileUuid\",\"label\":null,\"minZoom\":0,\"maxZoom\":24,\"alpha\":1,\"visible\":true,\"style\":{\"type\":\"EMS_VECTOR_TILE\",\"color\":\"\"},\"includeInFitToBounds\":true,\"type\":\"EMS_VECTOR_TILE\"},{\"id\":\"geometryLayerUuid\",\"sourceDescriptor\":{\"geoField\":\"fieldNotUuid\",\"id\":\"fieldUuid\",\"label\":\"overture_land\",\"scalingType\":\"MVT\",\"tooltipProperties\":[],\"type\":\"ES_SEARCH\",\"indexPatternRefName\":\"layer_1_source_index_pattern\"},\"type\":\"MVT_VECTOR\",\"visible\":true,\"style\":{}}]",
+        "mapStateJSON": "{\"adHocDataViews\":[],\"zoom\":1.15,\"center\":{\"lon\":0,\"lat\":0},\"timeFilters\":{\"from\":\"now-15m\",\"to\":\"now\"},\"refreshConfig\":{\"isPaused\":true,\"interval\":60000},\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filters\":[],\"settings\":{\"autoFitToDataBounds\":true,\"backgroundColor\":\"#ffffff\",\"customIcons\":[],\"disableInteractive\":false,\"disableTooltipControl\":false,\"hideToolbarOverlay\":false,\"hideLayerControl\":false,\"hideViewControl\":false,\"initialLocation\":\"LAST_SAVED_LOCATION\",\"fixedLocation\":{\"lat\":0,\"lon\":0,\"zoom\":2},\"browserLocation\":{\"zoom\":2},\"keydownScrollZoom\":false,\"maxZoom\":24,\"minZoom\":0,\"showScaleControl\":false,\"showSpatialFilters\":true,\"showTimesliderToggleButton\":true,\"spatialFiltersAlpa\":0.3,\"spatialFiltersFillColor\":\"#DA8B45\",\"spatialFiltersLineColor\":\"#DA8B45\"}}",
+        "uiStateJSON": "{\"isLayerTOCOpen\":true,\"openTOCDetails\":[]}"
+      },
+      "enhancements": {
+        "dynamicActions": {
+          "events": []
+        }
+      },
+      "hiddenLayers": [],
+      "isLayerTOCOpen": true,
+      "mapBuffer": {
+        "minLon": -180,
+        "minLat": -90,
+        "maxLon": 180,
+        "maxLat": 90
+      },
+      "mapCenter": {
+        "lon": 0,
+        "lat": 0,
+        "zoom": 1.15
+      },
+      "openTOCDetails": []
+    }
+  },
+  "reference": {
+    "name": "panelUuid:layer_1_source_index_pattern",
+    "type": "index-pattern",
+    "id": "dataViewUuid"
+  }
+}

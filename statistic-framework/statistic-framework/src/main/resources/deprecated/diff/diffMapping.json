@@ -1,0 +1,14 @@
+{
+  "mappings": {
+    "properties": {
+      "id_keyword": { "type": "keyword" },
+      "grouped_data": {
+        "type": "nested",
+        "properties": {
+          "source_index": { "type": "keyword" },
+          "data": { "type": "object" }
+        }
+      }
+    }
+  }
+}

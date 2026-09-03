@@ -1,0 +1,96 @@
+{
+  "type": "lens",
+  "attributes": {
+    "title": "Changed Features count",
+    "description": "",
+    "visualizationType": "lnsDatatable",
+    "state": {
+      "visualization": {
+        "columns": [
+          {
+            "columnId": "$INDEX_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": false
+          },
+          {
+            "columnId": "$SUMMARY_COLUMN_ID",
+            "isTransposed": false,
+            "isMetric": true,
+            "alignment": "right"
+          }
+        ],
+        "layerId": "$DATASOURCE_LAYER_ID",
+        "layerType": "data"
+      },
+      "query": {
+        "query": "",
+        "language": "kuery"
+      },
+      "filters": [],
+      "datasourceStates": {
+        "formBased": {
+          "layers": {
+            "$DATASOURCE_LAYER_ID": {
+              "columns": {
+                "$INDEX_COLUMN_ID": {
+                  "label": "Index name",
+                  "dataType": "string",
+                  "operationType": "terms",
+                  "scale": "ordinal",
+                  "sourceField": "metadata.sourceIndex.keyword",
+                  "isBucketed": true,
+                  "params": {
+                    "size": 20,
+                    "orderBy": {
+                      "type": "column",
+                      "columnId": "$SUMMARY_COLUMN_ID"
+                    },
+                    "orderDirection": "desc",
+                    "otherBucket": true,
+                    "missingBucket": false,
+                    "parentFormat": {
+                      "id": "terms"
+                    }
+                  },
+                  "customLabel": true
+                },
+                "$SUMMARY_COLUMN_ID": {
+                  "label": "Number of changed Features(SourceVersion:$SOURCE_VERSION; TargetVersion:$TARGET_VERSION)",
+                  "dataType": "number",
+                  "operationType": "unique_count",
+                  "scale": "ratio",
+                  "sourceField": "metadata.featureId.keyword",
+                  "isBucketed": false,
+                  "filter": {
+                    "query": "metadata.sourceVersion.keyword : \"$SOURCE_VERSION\" and metadata.targetVersion.keyword : \"$TARGET_VERSION\" ",
+                    "language": "kuery"
+                  },
+                  "params": {
+                    "emptyAsNull": true
+                  },
+                  "customLabel": true
+                }
+              },
+              "columnOrder": [
+                "$INDEX_COLUMN_ID",
+                "$SUMMARY_COLUMN_ID"
+              ],
+              "sampling": 1,
+              "ignoreGlobalFilters": false,
+              "incompleteColumns": {}
+            }
+          }
+        }
+      },
+      "internalReferences": [],
+      "adHocDataViews": {}
+    }
+  },
+  "references": [
+    {
+      "type": "index-pattern",
+      "id": "$DATA_VIEW_ID",
+      "name": "indexpattern-datasource-layer-$DATASOURCE_LAYER_ID"
+    }
+  ]
+}

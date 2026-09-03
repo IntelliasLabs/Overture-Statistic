@@ -1,0 +1,11 @@
+com.intellias.mobility.statistic.framework.dashboard.DashboardController
+com.intellias.mobility.statistic.framework.config.AnalyticsConfigs
+com.intellias.mobility.statistic.framework.analytics.job.AnalyticsJobConfiguration
+com.intellias.mobility.statistic.framework.analytics.job.AnalyticsJobLauncherConfiguration
+com.intellias.mobility.statistic.framework.analytics.diffjob.DifferenceJobConfiguration
+com.intellias.mobility.statistic.framework.analytics.mergejob.MergeJobConfiguration
+com.intellias.mobility.statistic.framework.analytics.job.AnalyticsJobController
+com.intellias.mobility.statistic.framework.dashboards.config.DiffDashboardConfiguration
+com.intellias.mobility.statistic.framework.dashboards.controller.diff.DiffDashboardController
+com.intellias.mobility.statistic.framework.diffreport.controller.DiffReportController
+com.intellias.mobility.statistic.framework.diffreport.config.DiffReportConfiguration
